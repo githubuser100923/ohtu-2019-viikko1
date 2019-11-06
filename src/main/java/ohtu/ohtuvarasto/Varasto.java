@@ -42,7 +42,7 @@ public class Varasto {
         if (alkuSaldo <= tilavuus && alkuSaldo > 0.0)
         {
             this.saldo = Math.max(tilavuus,alkuSaldo);
-        } 
+        }
     }
 
     // --- ottavat aksessorit eli getterit: ---
