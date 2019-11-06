@@ -1,5 +1,7 @@
 package ohtu.ohtuvarasto;
 
+import java.lang.*;
+
 public class Varasto {
 
     // --- piilotettu tietorakenteen toteutus: ---
@@ -21,20 +23,26 @@ public class Varasto {
 
     public Varasto(double tilavuus, double alkuSaldo) 
     {
+        tilavuusApu(tilavuus);
+        saldoApu(tilavuus,alkuSaldo);
+    }
+
+    public void tilavuusApu(double tilavuus) 
+    {
         this.tilavuus = 0.0;
         if (tilavuus > 0.0) 
         {
             this.tilavuus = tilavuus;
         }
+    }
+
+    public void saldoApu(double tilavuus, double alkuSaldo)
+    {
         this.saldo = 0.0;
         if (alkuSaldo <= tilavuus && alkuSaldo > 0.0)
         {
-            this.saldo = alkuSaldo;
+            this.saldo = Math.max(tilavuus,alkuSaldo);
         } 
-        else if(alkuSaldo > tilavuus)
-        {
-            this.saldo = tilavuus;
-        }
     }
 
     // --- ottavat aksessorit eli getterit: ---
